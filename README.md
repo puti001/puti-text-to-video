@@ -25,23 +25,42 @@
    * 雙卡 3D 弧線物理對調（走三維高低錯身弧線，帶有 ±6° 傾角，真實實體卡片質感）。
    * 結尾 CTA 自動噴發純 Canvas 原生物理粒子彩帶。
 
-4. **13 大動態分鏡版式 (Scene Layouts)**：
-   * `L00_GiantImpact`（巨幅大字報衝擊 + 金邊語錄膠囊彈出）
-   * `L01_HeroHook`（開場大標與共鳴提問）
-   * `L02_CardFlip`（卡片 3D 空間弧線物理對調）
-   * `L03_InvertText`（180° 倒立翻轉，專屬反轉關鍵詞）
-   * `L04_FocusCircle`（程式動態畫圓焦點容器）
-   * `L05_CardGrid`（痛點/案例卡片矩陣，隨口白推移進場）
-   * `L06_StepList`（三步驟漸進生長清單 + 打字機搜尋列）
-   * `L07_HomeworkTimer`（小功課 5:00 圓形時鐘 + 填空線）
-   * `L08_OutroCTA`（結尾行動引導 + 原生物理彩帶噴灑）
-   * `L09_ChatBubbles`（LINE / 微信風格對話氣泡逐個彈出 + 焦慮引爆）
-   * `L10_CardMorph`（單卡原地變質斷電褪灰 + 標題轉紅警示）
-   * `L13_DataStat`（150px 巨幅數字大字報）
-   * `L14_Timeline`（里程碑時間軸呼吸節點）
-   * `L15_BeforeAfter`（前後對比魔法卡片）
-   * `L16_Subtraction`（做減法動態劃線扣除）
-   * `L17_SwipeDismiss`（瀟灑向左滑走飛出）
+4. **最高核心哲學：Text 是主角（文字即演員）**：
+   * 文字不是貼在靜態卡片上的說明標籤，文字自身具備走位與情緒演繹！
+   * 三個字、四個字（如「先做減法」「倒過來」「『我的』問題」）在滿版留白下具備最強視覺重心，不以多餘裝飾稀釋文字力量。
+
+---
+
+## 🎬 教學影片七段敘事黃金骨架 (The 7-Stage Pedagogical Arc)
+
+1. **生活經驗與共鳴提問 (Hook)**：日常經驗破題引發共鳴（`L01_HeroHook`）。
+2. **資訊焦慮與現實困境 (Agony)**：氣泡逐一彈出，引爆大腦過熱焦慮（`L09_ChatBubbles`）。
+3. **原地變質與迷思反思 (Truth)**：單卡原地斷電褪灰，標題轉紅警告（`L10_CardMorph`）。
+4. **核心 3~4 字震撼破題 (Kinetic Shock)**：滿版留白 + 130px 大字 + 動態劃線（`L00_GiantImpact` / `L16_Subtraction`）。
+5. **具體三問與空間生長 (Step Reveal)**：步驟逐條「1️⃣ ➔ 2️⃣ ➔ 3️⃣」生長推入，搜尋列敲出結論（`L06_StepList`）。
+6. **瀟灑放手與知所進退 (Mastery)**：卡片向左滑走飛出（`L17_SwipeDismiss`），雙卡 3D 空間弧線物理對調（`L02_CardFlip`）。
+7. **行動呼籲與彩帶收尾 (Outro & Confetti)**：下集預告/思考題，全螢幕噴灑 Canvas 原生物理彩帶（`L08_OutroCTA`）。
+
+---
+
+## 🎨 13 大動態分鏡版式 (Scene Layouts)
+
+* `L00_GiantImpact`（巨幅大字報衝擊 + 金邊語錄膠囊彈出）
+* `L01_HeroHook`（開場大標與共鳴提問）
+* `L02_CardFlip`（卡片 3D 空間弧線物理對調）
+* `L03_InvertText`（180° 倒立翻轉，專屬反轉關鍵詞）
+* `L04_FocusCircle`（程式動態畫圓焦點容器）
+* `L05_CardGrid`（痛點/案例卡片矩陣，隨口白推移進場）
+* `L06_StepList`（三步驟漸進生長清單 + 打字機搜尋列）
+* `L07_HomeworkTimer`（小功課 5:00 圓形時鐘 + 填空線）
+* `L08_OutroCTA`（結尾行動引導 + 原生物理彩帶噴灑）
+* `L09_ChatBubbles`（LINE / 微信風格對話氣泡逐個彈出 + 焦慮引爆）
+* `L10_CardMorph`（單卡原地變質斷電褪灰 + 標題轉紅警示）
+* `L13_DataStat`（150px 巨幅數字大字報）
+* `L14_Timeline`（里程碑時間軸呼吸節點）
+* `L15_BeforeAfter`（前後對比魔法卡片）
+* `L16_Subtraction`（做減法動態劃線扣除）
+* `L17_SwipeDismiss`（瀟灑向左滑走飛出）
 
 ---
 
