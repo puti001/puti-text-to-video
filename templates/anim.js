@@ -76,9 +76,17 @@
 
       switch (scene.layout) {
         case 'L00_GiantImpact':
+          let titleHtml = scene.title || '';
+          if (titleHtml.includes('<br>')) {
+            const parts = titleHtml.split('<br>');
+            titleHtml = `
+              <span class="kinetic-phrase phrase-1" id="k-phrase-1-${index}">${parts[0]}</span><br>
+              <span class="phrase-impact-zoom phrase-2" id="k-phrase-2-${index}">${parts.slice(1).join('<br>')}</span>
+            `;
+          }
           container.innerHTML = `
             <div class="giant-impact-text ${scene.accent ? 'accent-color' : ''}" id="giant-text-${index}">
-              ${scene.title || ''}
+              ${titleHtml}
             </div>
             ${scene.subQuote ? `<div class="quote-pill" id="giant-quote-${index}">${scene.subQuote}</div>` : ''}
             ${scene.subtitle ? `<div class="hero-subtitle" style="margin-top: 30px;">${scene.subtitle}</div>` : ''}
@@ -305,7 +313,10 @@
       if (!el) return;
 
       if (idx === activeSceneIdx) {
-        if (!el.classList.contains('active')) el.classList.add('active');
+        if (!el.classList.contains('active')) {
+          el.classList.remove('exiting');
+          el.classList.add('active');
+        }
 
         // Check active sentence index within current scene
         let lineIdx = 0;
@@ -320,10 +331,25 @@
           }
         }
 
-        // --- L00_GiantImpact (Sequential sub-quote reveal) ---
+        // --- L00_GiantImpact (Cinematic Phrase Reveal & Sub-quote) ---
         if (s.layout === 'L00_GiantImpact') {
+          const kp1 = document.getElementById(`k-phrase-1-${idx}`);
+          const kp2 = document.getElementById(`k-phrase-2-${idx}`);
           const gQuote = document.getElementById(`giant-quote-${idx}`);
           const gText = document.getElementById(`giant-text-${idx}`);
+
+          // Phrase 1 enters immediately
+          if (kp1) kp1.classList.add('slam');
+
+          // Phrase 2 hits with kinetic slam on the second half of the sentence (around 1.35s in)
+          if (kp2) {
+            if (t >= s.startTime + 1.25) {
+              kp2.classList.add('slam');
+            } else {
+              kp2.classList.remove('slam');
+            }
+          }
+
           if (lineIdx >= 1) {
             if (gText) {
               gText.style.transform = 'translateY(-25px) scale(0.92)';
@@ -509,7 +535,10 @@
         }
 
       } else {
-        el.classList.remove('active');
+        if (el.classList.contains('active')) {
+          el.classList.remove('active');
+          el.classList.add('exiting');
+        }
       }
     });
 
