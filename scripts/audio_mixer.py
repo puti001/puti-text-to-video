@@ -34,7 +34,7 @@ def mix_video_and_audio(video_path, narration_path, output_mp4, bgm_path=None, b
             f"[2:a]aformat=sample_fmts=fltp:sample_rates=44100:channel_layouts=stereo,"
             f"aloop=loop=-1:size=2147483647,volume={bgm_volume},"
             f"afade=t=in:st=0:d=1.5,afade=t=out:st={fade_out_start:.2f}:d=2.0[bgm];"
-            f"[voice][bgm]amix=inputs=2:duration=first:dropout_transition=2[aout]"
+            f"[voice][bgm]amix=inputs=2:duration=first:dropout_transition=2,loudnorm=I=-16:TP=-1.5:LRA=11[aout]"
         )
         cmd = [
             "ffmpeg", "-y",
@@ -56,11 +56,12 @@ def mix_video_and_audio(video_path, narration_path, output_mp4, bgm_path=None, b
             output_mp4
         ]
     else:
-        # Voice only
+        # Voice only with loudnorm normalization
         cmd = [
             "ffmpeg", "-y",
             "-i", video_path,
             "-i", narration_path,
+            "-filter:a", "loudnorm=I=-16:TP=-1.5:LRA=11",
             "-map", "0:v:0",
             "-map", "1:a:0",
             "-c:v", "libx264",
@@ -69,6 +70,8 @@ def mix_video_and_audio(video_path, narration_path, output_mp4, bgm_path=None, b
             "-crf", "19",
             "-c:a", "aac",
             "-b:a", "192k",
+            "-ar", "44100",
+            "-ac", "2",
             "-t", str(duration + 0.3),
             output_mp4
         ]

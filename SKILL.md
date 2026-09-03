@@ -13,14 +13,17 @@ description: 當提到「文字轉影片」、「文案轉影片」、「Felo AI
 
 1. **視覺風格**：日系極簡 / Notion 質感風。溫暖柔和米灰底（`#F7F6F2`）、白底大圓角懸浮卡片（`border-radius: 32px` + `1px solid #EBE9E1` 柔和微邊框 + 輕立體陰影）、高對比暖黑字體（`#2D2D2A`）。
 2. **語音旁白**：微軟 Edge-TTS 台灣神經語音，預設使用親和自然的女聲 `zh-TW-HsiaoChenNeural`（曉臻），亦可指定沈穩男聲 `zh-TW-YunJheNeural`（雲哲）。
-3. **逐句字幕膠囊**：畫面底部居中半透明深色膠囊（`rgba(35,35,33,0.88)` + 模糊濾鏡），與口白毫秒級精確同步。
-4. **原聲暖心背景音樂**：內建 Jason Shaw 原聲木吉他指彈 BGM（立體聲 44.1kHz，音量平衡於 0.20 柔和微調），全片溫暖陪伴，結尾平滑淡出。
-5. **本地純自動運作**：基於 Playwright Chromium 無頭錄製與 FFmpeg 壓制，無需昂貴雲端算力與 API 金鑰。
-6. **PowerPoint & Canva 級全套動畫庫支援**：
+3. **手機友善清晰字幕**：畫面底部深色高對比膠囊（`rgba(32,32,30,0.9)` + 毛玻璃），字級調大至 `34px` (700 bold)，手機小螢幕無論橫直屏皆能一秒看清，與口白毫秒級精確同步。
+4. **廣播級標準化混音 (Social Broadcast Loudness)**：內建 Jason Shaw 原聲木吉他指彈 BGM，FFmpeg 採用 `loudnorm=I=-16:TP=-1.5:LRA=11` 進行社群標準響度正規化，音量飽滿結實、手機外放不破音、結尾平滑淡出。
+5. **慢速微推鏡與疊化轉場 (Cinematic Slow Push & Crossfade)**：
+   * 場景交替採用 0.65 秒電影級疊化淡入淡出（`Crossfade`），徹底告別死板硬切。
+   * 活動場景自動帶有 18 秒極細微向前推鏡動態（`scale(0.985) ➔ scale(1.03)`），告別任何一毫秒的死寂定格。
+6. **本地純自動運作**：基於 Playwright Chromium 無頭錄製與 FFmpeg 壓制，無需昂貴雲端算力與 API 金鑰。
+7. **PowerPoint & Canva 級全套動畫庫支援**：
    * **進入動畫**：淡化 (`fade`)、揚升/飛入 (`rise`)、平移 (`pan-right`)、漂浮 (`float`)、彈跳 (`pop`)、縮放旋轉 (`zoom-spin`)、擦去揭示 (`wipe`)、緩慢浮現 (`breathe`)、線條出現 (`line-reveal`)、飄移 (`drift`)、板塊移動 (`block-slide`)。
    * **強調動畫**：脈衝 (`pulse`)、陀螺轉 (`spin`)、蹺蹺板 (`teeter`)、閃爍高亮 (`flash`)、波浪動態 (`wave`)。
    可在任何分鏡 JSON 中指定 `"anim": "rise"` 或 `"anim": "pop"` 等參數一鍵套用！
-7. **最高核心哲學：Text 是主角（文字即演員，Kinetic Typography）**：
+8. **最高核心哲學：Text 是主角（文字即演員，Kinetic Typography）**：
    * **文字就是演員**：文字不是貼在靜態卡片上的說明標籤，文字自身具備走位與情緒演繹！
      * 講到重點時：文字**放大撲面進場**（120px~140px）；
      * 講到下一句時：文字**縮小上浮退位 (`ascend-to-header`)**，下方讓出空間給卡片或清單生長；

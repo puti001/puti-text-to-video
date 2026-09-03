@@ -10,7 +10,9 @@
 1. **純本地一條龍運行 (Zero Cloud Cost)**：
    * **語音合成**：微軟 Edge-TTS 台灣神經語音（預設女聲 `zh-TW-HsiaoChenNeural` 曉臻、可選男聲 `zh-TW-YunJheNeural` 雲哲），完全免費、無字數限制。
    * **動態錄製**：Playwright Headless Chromium 原生 1920x1080 錄製，以 60fps 捕捉 DOM 動態。
-   * **音訊混音**：FFmpeg 44.1kHz 立體聲混音，支援旁白軌與 Jason Shaw 原聲木吉他指彈配樂（`acoustic_guitar.mp3`），自動淡入淡出。
+   * **音訊混音**：FFmpeg 44.1kHz 立體聲混音，加入 `loudnorm=I=-16:TP=-1.5:LRA=11` 進行社群標準廣播級響度正規化，音量飽滿結實、手機外放清晰震撼。
+   * **手機友善清晰字幕**：大字級 `34px` (700 bold) 深色膠囊，手機無論直屏橫屏一秒看清。
+   * **電影級運鏡與轉場**：0.65 秒疊化淡入淡出 (`Crossfade`) + 18 秒慢速微推鏡 (`Slow Push-In`)，畫面永不靜止死寂。
 
 2. **動態即語意 (Form Follows Meaning)**：
    * 絕非機械式套用特效，每個動態均與文案語意嚴格對齊：
