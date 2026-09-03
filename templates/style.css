@@ -1,0 +1,945 @@
+/* Puti-AI Notion & PowerPoint & Canva Grade Complete Motion Graphics Stylesheet */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700;900&family=Plus+Jakarta+Sans:wght@500;700;800;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  background-color: #F7F6F2;
+  font-family: 'Plus Jakarta Sans', 'Noto Sans TC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Microsoft JhengHei", sans-serif;
+  color: #2D2D2A;
+  -webkit-font-smoothing: antialiased;
+}
+
+#viewport {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 140px 140px;
+}
+
+/* ============================================================
+   場景容器 (Scene Container)
+   ============================================================ */
+.scene-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1920px;
+  height: 1080px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 120px 140px;
+}
+
+.scene-container:not(.active) {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.scene-container.active {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  animation: sceneFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes sceneFadeIn {
+  from { opacity: 0; transform: scale(0.96) translateY(20px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* ============================================================
+   PowerPoint & Canva 標準動態效果庫 (Animation Utility Classes)
+   ============================================================ */
+
+/* --- 進入動畫 (Entrance Animations) --- */
+
+/* 1. 淡化 (Fade In) */
+.anim-fade { animation: animFade 0.5s ease-out forwards; }
+@keyframes animFade { from { opacity: 0; } to { opacity: 1; } }
+
+/* 2. 揚升 / 飛入 (Fly In / Rise) - Canva 揚升 */
+.anim-rise { animation: animRise 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+@keyframes animRise { from { opacity: 0; transform: translateY(80px); } to { opacity: 1; transform: translateY(0); } }
+
+/* 3. 平移 (Pan / Slide Right) */
+.anim-pan-right { animation: animPanRight 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+@keyframes animPanRight { from { opacity: 0; transform: translateX(-80px); } to { opacity: 1; transform: translateX(0); } }
+
+/* 4. 漂浮進入 (Float In) */
+.anim-float { animation: animFloat 0.65s cubic-bezier(0.2, 0.9, 0.3, 1.2) forwards; }
+@keyframes animFloat { from { opacity: 0; transform: translateY(40px) scale(0.94); } to { opacity: 1; transform: translateY(0) scale(1); } }
+
+/* 5. 彈跳 (Bounce / Pop) - Canva 彈跳 / PPT 彈跳 */
+.anim-pop { animation: animPop 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+@keyframes animPop { from { opacity: 0; transform: scale(0.4); } to { opacity: 1; transform: scale(1); } }
+
+/* 6. 縮放與旋轉 (Zoom & Spin) */
+.anim-zoom-spin { animation: animZoomSpin 0.6s cubic-bezier(0.34, 1.3, 0.64, 1) forwards; }
+@keyframes animZoomSpin { from { opacity: 0; transform: scale(0.2) rotate(-20deg); } to { opacity: 1; transform: scale(1) rotate(0deg); } }
+
+/* 7. 擦去 / 揭示 (Wipe) */
+.anim-wipe { animation: animWipe 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+@keyframes animWipe { from { clip-path: inset(0 100% 0 0); opacity: 0; } to { clip-path: inset(0 0 0 0); opacity: 1; } }
+
+/* 8. 緩慢浮現 (Breathe In) */
+.anim-breathe { animation: animBreathe 1s ease-out forwards; }
+@keyframes animBreathe { from { opacity: 0; transform: scale(1.08); filter: blur(6px); } to { opacity: 1; transform: scale(1); filter: blur(0); } }
+
+/* 9. 線條出現 (Stripe / Blind) */
+.anim-line-reveal { animation: animLineReveal 0.5s ease forwards; }
+@keyframes animLineReveal { from { transform: scaleY(0); opacity: 0; } to { transform: scaleY(1); opacity: 1; } }
+
+/* 10. 飄移 (Drift) */
+.anim-drift { animation: animDrift 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
+@keyframes animDrift { from { opacity: 0; transform: translate(-40px, 30px); } to { opacity: 1; transform: translate(0, 0); } }
+
+/* 11. 板塊移動 (Block Slide) */
+.anim-block-slide { animation: animBlockSlide 0.55s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
+@keyframes animBlockSlide { from { transform: translateY(100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+/* --- 強調動畫 (Emphasis Animations) --- */
+
+/* 12. 脈衝 (Pulse) */
+.anim-pulse { animation: animPulse 1.2s infinite ease-in-out; }
+@keyframes animPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.06); } }
+
+/* 13. 陀螺轉 (Spin Loop) */
+.anim-spin { animation: animSpin 3s infinite linear; }
+@keyframes animSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+/* 14. 蹺蹺板 (Teeter / Wobble) */
+.anim-teeter { animation: animTeeter 0.8s ease-in-out infinite alternate; }
+@keyframes animTeeter { 0% { transform: rotate(-5deg); } 100% { transform: rotate(5deg); } }
+
+/* 15. 閃爍高亮 (Flash) */
+.anim-flash { animation: animFlash 0.8s infinite alternate; }
+@keyframes animFlash { from { opacity: 1; } to { opacity: 0.3; } }
+
+/* 16. 波浪 (Wave) */
+.anim-wave { animation: animWave 1.4s infinite ease-in-out; }
+@keyframes animWave { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-16px); } }
+
+/* --- 語意與連續轉場專用動態 (Semantic & Continuous Morph Transitions) --- */
+
+/* 17. 縮小上升成為抬頭 (Shrink & Ascend - 帶出下一段內容) */
+.hero-title.ascend-to-header {
+  transform: translateY(-240px) scale(0.68) !important;
+  color: #555555 !important;
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* 18. 做減法 (Subtraction / Strikethrough - 劃線刪除/減法意象) */
+.anim-subtraction {
+  position: relative;
+  display: inline-block;
+}
+.anim-subtraction.subtracted::after {
+  content: '';
+  position: absolute;
+  left: -5%;
+  top: 50%;
+  width: 110%;
+  height: 10px;
+  background: #E2583E;
+  border-radius: 5px;
+  transform: translateY(-50%) scaleX(0);
+  transform-origin: left center;
+  animation: drawStrikethrough 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes drawStrikethrough {
+  to { transform: translateY(-50%) scaleX(1); }
+}
+
+/* 19. 放心滑過去 (Swipe Away / Dismiss Left - 輕快滑走) */
+.anim-swipe-away {
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.65s ease !important;
+}
+.anim-swipe-away.swiped {
+  transform: translateX(-1600px) rotate(-8deg) !important;
+  opacity: 0 !important;
+}
+
+/* 20. 資訊焦慮 / 腦過熱 (Anxiety & Overheat Wiggle - 抖動焦慮) */
+.anim-anxiety {
+  animation: anxietyWiggle 0.5s infinite ease-in-out alternate;
+}
+@keyframes anxietyWiggle {
+  0% { transform: translate(-4px, 2px) rotate(-1deg); }
+  50% { transform: translate(4px, -2px) rotate(1deg); }
+  100% { transform: translate(-3px, -1px) rotate(0deg); }
+}
+
+/* 21. 程式動態畫圓 (Dynamic Expanding Circle Container) */
+.anim-draw-circle {
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  background: #E88E14;
+  color: #FFFFFF;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 84px;
+  font-weight: 800;
+  box-shadow: 0 20px 50px rgba(232, 142, 20, 0.35);
+  animation: circleExpand 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  transition: all 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes circleExpand {
+  from { transform: scale(0.2); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+.anim-draw-circle.ascend {
+  transform: translateY(-220px) scale(0.65) !important;
+}
+
+/* 22. 左右上下交錯進場 (Staggered Cross In) */
+.anim-cross-left {
+  opacity: 0;
+  transform: translateX(-120px);
+  transition: all 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.anim-cross-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+.anim-cross-right {
+  opacity: 0;
+  transform: translateX(120px);
+  transition: all 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.anim-cross-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ============================================================
+   常用字體與版式樣式
+   ============================================================ */
+.hero-title {
+  font-size: 72px;
+  font-weight: 800;
+  color: #2D2D2A;
+  text-align: center;
+  line-height: 1.3;
+  letter-spacing: -1px;
+  margin-bottom: 28px;
+}
+
+.hero-subtitle {
+  font-size: 38px;
+  font-weight: 600;
+  color: #666660;
+  text-align: center;
+  line-height: 1.45;
+}
+
+.highlight-accent { color: #E2583E; }
+.highlight-orange { color: #E67E22; }
+.highlight-green  { color: #06C755; }
+.highlight-blue   { color: #0984E3; }
+.highlight-purple { color: #6C5CE7; }
+
+/* ============================================================
+   L00: GiantImpact (超大震撼字 - PowerPoint 衝擊大字報)
+   ============================================================ */
+.giant-impact-text {
+  font-size: 130px;
+  font-weight: 900;
+  color: #222220;
+  text-align: center;
+  line-height: 1.22;
+  letter-spacing: -2px;
+  animation: impactZoom 0.55s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.giant-impact-text.accent-color { color: #E2583E; }
+.giant-impact-text.green-color  { color: #00B894; }
+.giant-impact-text.blue-color   { color: #0984E3; }
+
+@keyframes impactZoom {
+  0% { transform: scale(0.7); opacity: 0; }
+  70% { transform: scale(1.04); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* ============================================================
+   L01: HeroHook
+   ============================================================ */
+.L01_HeroHook .hero-title {
+  animation: animFloat 0.6s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+}
+
+/* ============================================================
+   L02: CardFlip / Swap (卡片 3D 弧線物理對調)
+   ============================================================ */
+.card-swap-wrapper {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 70px !important;
+  margin-top: 50px !important;
+  width: 100% !important;
+  perspective: 1400px;
+}
+
+.swap-card {
+  width: 360px;
+  height: 360px;
+  background: #FFFFFF;
+  border-radius: 36px;
+  border: 1px solid #EBE9E1;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.05), 0 2px 6px rgba(0, 0, 0, 0.02);
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 30px;
+  transition: transform 0.85s cubic-bezier(0.34, 1.35, 0.64, 1), box-shadow 0.85s ease;
+}
+
+.swap-card-a { z-index: 2; }
+.swap-card-b { z-index: 2; }
+
+.swap-card .card-icon {
+  font-size: 96px;
+  margin-bottom: 24px;
+}
+
+.swap-card .card-title {
+  font-size: 38px;
+  font-weight: 800;
+  color: #2D2D2A;
+}
+
+.swap-arrow {
+  width: 80px;
+  height: 80px;
+  background: #E8F4F8;
+  color: #2B7A78;
+  border-radius: 24px;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 40px;
+  font-weight: bold;
+  transition: transform 0.85s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.85s ease, color 0.85s ease;
+  z-index: 1;
+}
+
+/* 3D Arc Crossing Animation (弧線立體錯身) */
+.card-swap-wrapper.swapped .swap-card-a {
+  transform: translate(430px, 35px) rotate(6deg) scale(0.96);
+  z-index: 1;
+}
+
+.card-swap-wrapper.swapped .swap-card-b {
+  transform: translate(-430px, -35px) rotate(-6deg) scale(1.04);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.1);
+  z-index: 3;
+}
+
+.card-swap-wrapper.swapped .swap-arrow {
+  transform: rotate(180deg) scale(1.12);
+  background: #FFEAA7;
+  color: #D35400;
+}
+
+/* ============================================================
+   L03: InvertText (文字 180° 翻轉倒立)
+   ============================================================ */
+.invert-target {
+  display: inline-block;
+  font-size: 140px;
+  font-weight: 900;
+  color: #2D2D2D;
+  margin-top: 30px;
+  transition: transform 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.flipped .invert-target {
+  transform: rotate(180deg);
+}
+
+/* ============================================================
+   L04: FocusCircle (核心焦點圓形)
+   ============================================================ */
+.center-circle {
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  background: #E88E14;
+  color: #FFFFFF;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 80px;
+  font-weight: 800;
+  box-shadow: 0 20px 50px rgba(232, 142, 20, 0.35);
+  animation: pulse 3s infinite ease-in-out;
+}
+
+.satellite-text {
+  position: absolute;
+  font-size: 46px;
+  font-weight: 700;
+  color: #A0A0A0;
+}
+
+.satellite-left  { left: 300px; top: 480px; }
+.satellite-right { right: 300px; top: 480px; }
+
+/* ============================================================
+   L05: CardGrid (痛點/案例卡片矩陣)
+   ============================================================ */
+.cards-container {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 40px !important;
+  width: 100% !important;
+  max-width: 1500px;
+  margin-top: 40px;
+}
+
+.grid-card {
+  flex: 1;
+  max-width: 440px;
+  background: #FFFFFF;
+  border-radius: 36px;
+  padding: 50px 36px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.05), 0 2px 8px rgba(0, 0, 0, 0.02);
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.55s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+}
+
+.grid-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.grid-card .icon-box {
+  width: 100px;
+  height: 100px;
+  background: #F4F3ED;
+  border-radius: 28px;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 50px;
+  margin-bottom: 28px;
+}
+
+.grid-card .card-main-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #2D2D2D;
+  margin-bottom: 12px;
+  line-height: 1.35;
+}
+
+.grid-card .card-desc {
+  font-size: 24px;
+  color: #777777;
+  line-height: 1.4;
+}
+
+/* ============================================================
+   L06: StepList (步驟逐項漸進生長清單 - Felo AI 連續空間推移)
+   ============================================================ */
+.step-item {
+  font-size: 54px;
+  font-weight: 800;
+  color: #2D2D2A;
+  margin: 16px 0;
+  display: none !important;
+  align-items: center !important;
+  gap: 24px;
+  opacity: 0;
+  transform: translateX(-80px) scale(0.95);
+  transition: opacity 0.5s ease, transform 0.55s cubic-bezier(0.34, 1.3, 0.64, 1);
+}
+
+.step-item.active {
+  display: flex !important;
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+
+.step-item .step-num {
+  color: #E2583E;
+  font-size: 60px;
+}
+
+.quote-pill {
+  background: #FFFFFF;
+  border-radius: 9999px;
+  border: 2px solid #E67E22;
+  box-shadow: 0 12px 32px rgba(230, 126, 34, 0.15);
+  color: #E67E22;
+  font-size: 42px;
+  font-weight: 800;
+  padding: 16px 44px;
+  margin-top: 40px;
+  opacity: 0;
+  transform: translateY(30px) scale(0.8);
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.quote-pill.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* ============================================================
+   L07: HomeworkTimer (小功課倒數鐘)
+   ============================================================ */
+.timer-circle {
+  width: 220px;
+  height: 220px;
+  border: 10px solid #2D2D2D;
+  border-radius: 50%;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 64px;
+  font-weight: 800;
+  margin: 30px 0 40px;
+  letter-spacing: -2px;
+}
+
+.todo-lines {
+  width: 600px;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 30px;
+}
+
+.todo-row {
+  display: flex !important;
+  align-items: center !important;
+  gap: 20px;
+}
+
+.todo-row .todo-num {
+  font-size: 36px;
+  font-weight: 700;
+  color: #333333;
+}
+
+.todo-row .todo-line {
+  flex: 1;
+  height: 4px;
+  background: #D8D6CC;
+  border-radius: 2px;
+}
+
+/* ============================================================
+   L08: OutroCTA (結尾行動與播放卡片)
+   ============================================================ */
+.cta-button-card {
+  background: #FFFFFF;
+  border-radius: 28px;
+  padding: 30px 60px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.07);
+  display: flex !important;
+  align-items: center !important;
+  gap: 24px;
+  font-size: 38px;
+  font-weight: 700;
+  margin-top: 40px;
+  color: #333333;
+}
+
+.cta-play-icon {
+  width: 50px;
+  height: 50px;
+  background: #E2583E;
+  border-radius: 14px;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #FFFFFF;
+  font-size: 24px;
+}
+
+.cta-farewell {
+  font-size: 60px;
+  font-weight: 800;
+  color: #2A9D8F;
+  margin-top: 40px;
+  animation: bounce 1.2s infinite alternate ease-in-out;
+}
+
+/* ============================================================
+   L09: ChatBubbles (對話氣泡逐個彈出 - PPT 觸發動畫)
+   ============================================================ */
+.bubbles-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  margin-top: 30px;
+}
+
+.chat-bubble-card {
+  background: #FFFFFF;
+  border-radius: 24px;
+  padding: 24px 44px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
+  font-size: 38px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  opacity: 0;
+  transform: scale(0.6) translateY(30px);
+  transition: all 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.chat-bubble-card.visible {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+.chat-bubble-card.bubble-line {
+  color: #06C755;
+  border-left: 8px solid #06C755;
+}
+
+.chat-bubble-card.bubble-blue {
+  color: #2B7A78;
+  border-left: 8px solid #2B7A78;
+}
+
+.bubble-followup-text {
+  font-size: 54px;
+  font-weight: 800;
+  color: #E2583E;
+  margin-top: 35px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.45s ease;
+}
+
+.bubble-followup-text.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================================
+   L10: CardMorph (單一焦點卡片狀態演化與變色 - PPT 強調動畫)
+   ============================================================ */
+.morph-card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.morph-focal-card {
+  width: 280px;
+  height: 280px;
+  border-radius: 48px;
+  background: #00B894;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 110px;
+  box-shadow: 0 20px 48px rgba(0, 184, 148, 0.28);
+  transition: all 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.morph-focal-card.dimmed {
+  background: #DFE4EA !important;
+  color: #888888 !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04) !important;
+  transform: scale(0.92);
+}
+
+.morph-extra-text {
+  font-size: 54px;
+  font-weight: 800;
+  color: #2D2D2D;
+  margin-top: 40px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.45s ease;
+}
+
+.morph-extra-text.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================================
+   L11: TypewriterSearch (搜尋框打字機動態)
+   ============================================================ */
+.typewriter-search-box {
+  width: 800px;
+  height: 90px;
+  background: #FFFFFF;
+  border: 3px solid #6C5CE7;
+  border-radius: 9999px;
+  box-shadow: 0 16px 40px rgba(108, 92, 231, 0.12);
+  display: flex;
+  align-items: center;
+  padding: 0 36px;
+  margin-top: 40px;
+  gap: 20px;
+}
+
+.search-icon { font-size: 38px; }
+
+.typed-text-content {
+  font-size: 34px;
+  font-weight: 600;
+  color: #2D2D2D;
+  white-space: nowrap;
+}
+
+.typing-cursor {
+  display: inline-block;
+  width: 3px;
+  height: 36px;
+  background: #6C5CE7;
+  vertical-align: middle;
+  animation: blink 0.8s infinite;
+}
+
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+/* ============================================================
+   L13: DataStat (數據大字報 - 來自 HTML 簡報特效)
+   ============================================================ */
+.stat-number-hero {
+  font-size: 150px;
+  font-weight: 900;
+  color: #0984E3;
+  line-height: 1;
+  letter-spacing: -3px;
+  margin-bottom: 20px;
+  animation: impactZoom 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.stat-number-hero.stat-accent { color: #E2583E; }
+.stat-number-hero.stat-green  { color: #00B894; }
+.stat-number-hero.stat-purple { color: #6C5CE7; }
+
+.stat-label-box {
+  background: #FFFFFF;
+  border-radius: 20px;
+  padding: 16px 36px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  font-size: 38px;
+  font-weight: 700;
+  color: #333333;
+  margin-bottom: 16px;
+}
+
+/* ============================================================
+   L14: Timeline (里程碑時間軸 - 來自 HTML 簡報特效)
+   ============================================================ */
+.timeline-track {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 60px;
+  position: relative;
+  width: 100%;
+  max-width: 1400px;
+}
+
+.timeline-track::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 100px;
+  right: 100px;
+  height: 6px;
+  background: #E0DFD5;
+  z-index: 1;
+  transform: translateY(-50%);
+}
+
+.timeline-node {
+  position: relative;
+  z-index: 2;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center;
+  opacity: 0.35;
+  transform: scale(0.9);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.timeline-node.active {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.timeline-dot {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 8px solid #B0ADA5;
+  margin-bottom: 18px;
+  transition: all 0.4s ease;
+}
+
+.timeline-node.active .timeline-dot {
+  border-color: #E2583E;
+  background: #E2583E;
+  box-shadow: 0 0 25px rgba(226, 88, 62, 0.5);
+}
+
+.timeline-node-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: #2D2D2D;
+  margin-bottom: 8px;
+}
+
+.timeline-node-desc {
+  font-size: 22px;
+  color: #777777;
+}
+
+/* ============================================================
+   L15: BeforeAfter (前後對比魔法卡片 - 來自 HTML 簡報特效)
+   ============================================================ */
+.before-after-container {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  margin-top: 50px;
+  width: 100%;
+  max-width: 1400px;
+}
+
+.ba-card {
+  flex: 1;
+  padding: 50px 40px;
+  border-radius: 36px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.05);
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center;
+  transition: all 0.5s ease;
+}
+
+.ba-card.card-before {
+  background: #F1F2F6;
+  border: 2px dashed #CED6E0;
+  color: #747D8C;
+}
+
+.ba-card.card-after {
+  background: #FFFFFF;
+  border: 2px solid #00B894;
+  box-shadow: 0 20px 50px rgba(0, 184, 148, 0.15);
+  color: #2F3542;
+}
+
+.ba-tag {
+  padding: 10px 28px;
+  border-radius: 9999px;
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 24px;
+}
+
+.card-before .ba-tag { background: #DFE4EA; color: #57606F; }
+.card-after .ba-tag  { background: #E8F8F5; color: #00B894; }
+
+.ba-title {
+  font-size: 38px;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.ba-desc {
+  font-size: 26px;
+  line-height: 1.4;
+}
+
+/* ============================================================
+   字幕膠囊與版權
+   ============================================================ */
+#subtitle-container {
+  position: absolute;
+  bottom: 45px;
+  left: 0;
+  width: 100%;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.subtitle-pill {
+  background: rgba(45, 45, 45, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #FFFFFF;
+  padding: 10px 28px;
+  border-radius: 9999px;
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  max-width: 1500px;
+  text-align: center;
+  line-height: 1.4;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.subtitle-pill.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.puti-brand-tag {
+  position: absolute;
+  top: 35px;
+  left: 50px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #B0ADA5;
+  letter-spacing: 1px;
+}

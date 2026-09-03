@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>Puti-AI | 動態排版影片播放器</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="viewport">
+    <!-- Brand watermark -->
+    <div class="puti-brand-tag">Puti-AI Motion</div>
+
+    <!-- Scenes will be injected here dynamically -->
+    <div id="scenes-root"></div>
+
+    <!-- Bottom Subtitle Pill -->
+    <div id="subtitle-container">
+      <div id="subtitle-pill" class="subtitle-pill"></div>
+    </div>
+  </div>
+
+  <!-- Native Confetti Canvas from Puti-Presentation-Generator -->
+  <canvas id="confetti-canvas" style="position:fixed;top:0;left:0;width:1920px;height:1080px;pointer-events:none;z-index:9999;display:none;"></canvas>
+
+  <audio id="narration-audio" src="narration.mp3" preload="auto"></audio>
+
+  <!-- Script data fallback if standalone -->
+  <script src="script_data.js"></script>
+  <script src="anim.js"></script>
+</body>
+</html>
